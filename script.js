@@ -34,21 +34,16 @@ const roles = ["Developer...", "Designer....", "Photographer", "Freelancer.."];
         menu.style.display = "none";
       }
     }
-    // Contact form submission handling 
+   // form submission logic
     document.querySelector('#contact form').addEventListener('submit', function (e) {
-      e.preventDefault();
+      // Optionally, you can show a message before the form submits
+      // Do not call e.preventDefault(); so the form submits to FormSubmit
 
-      const name = this.querySelector('input[type="text"]').value.trim();
-      const email = this.querySelector('input[type="email"]').value.trim();
-      const message = this.querySelector('textarea').value.trim();
-
-      if (!name || !email || !message) {
-        alert("Please fill out all fields.");
-        return;
-      }
-
-      alert("Thank you! Your message has been sent.");
-      this.reset(); // Optionally clear form
+      const form = this;
+      setTimeout(() => {
+        form.reset();
+        alert("Your message has been sent successfully!");
+      }, 100);
     });
 
     // --- FIXED SCROLL BUTTON LOGIC ---
